@@ -2,5 +2,6 @@
 #require(doSNOW)
 #install.packages("foreach")
 #require(foreach)
-#install.packages("tidyverse")
-getwd()
+install.packages("tidyverse")
+#getwd()
+require(tidyverse)
