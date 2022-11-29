@@ -1,0 +1,6 @@
+#install.packages("doSNOW")
+#require(doSNOW)
+#install.packages("foreach")
+#require(foreach)
+#install.packages("tidyverse")
+getwd()
