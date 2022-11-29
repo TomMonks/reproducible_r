@@ -1,4 +1,4 @@
-# Use publicly available rocker/tidyverse image - rocker is the r docker project https://rocker-project.org
+# Use publicly available rocker/rstudio image - rocker is the r docker project https://rocker-project.org
 FROM rocker/tidyverse:latest
 
 #set the working directory to the container make copy simpler
@@ -10,7 +10,11 @@ RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.
 RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 
 # Copy all files across to container
-COPY . /home/rstudio/IPACS_RR
+COPY renv.lock renv.lock
+
+# renv autoloader tools
+# approach one
+ENV RENV_PATHS_LIBRARY renv/library
 
 # restore the renv environment 
 RUN R -e "renv::restore()"
